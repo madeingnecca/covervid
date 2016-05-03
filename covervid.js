@@ -36,13 +36,15 @@ var coverVid = function (elem, width, height) {
 	// Get image defined on poster attribute of video
 	var posterImage = elem.getAttribute('poster');
 
-	// Remove poster to disable
-	elem.removeAttribute('poster');
+	if (posterImage) {
+		// Remove poster to disable
+		elem.removeAttribute('poster');
 
-	// Set poster image as a background cover image on parent element
-	elem.parentNode.style.backgroundImage = 'url(' + posterImage + ')';
-	elem.parentNode.style.backgroundSize = 'cover';
-	elem.parentNode.style.backgroundPosition = 'center center';
+		// Set poster image as a background cover image on parent element
+		elem.parentNode.style.backgroundImage = 'url(' + posterImage + ')';
+		elem.parentNode.style.backgroundSize = 'cover';
+		elem.parentNode.style.backgroundPosition = 'center center';
+	}
 
 	// Define the attached selector
 	function sizeVideo() {
